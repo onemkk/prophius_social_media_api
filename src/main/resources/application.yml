@@ -1,0 +1,27 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: prophius
+  datasource:
+    url: jdbc:postgresql://localhost:5432/prophius
+    username: prophius
+    password: postgres
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        hbm2ddl:
+          auto: update
+    show-sql: true
+  liquibase:
+    change-log: 'classpath:/db/changelog-master.yaml'
+
+authentication:
+  secret-key: CTN1jr8aScUL0xllhNa8NaLLnjjUPOJJY1+api1SLdA=
+  access-token:
+    expiration-in-seconds: 1800
+  refresh-token:
+    expiration-in-seconds: 86400
